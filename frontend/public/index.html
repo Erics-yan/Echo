@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Customer Service Widget</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px; background: #f5f5f5; }
+    #ai-cs-widget-root { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+<body>
+  <h1>AI Customer Service Widget - Demo</h1>
+  <p>The widget should appear in the bottom-right corner.</p>
+
+  <div id="ai-cs-widget-root"></div>
+
+  <script>
+    window.__AI_CS_CONFIG__ = {
+      shopId: "demo-shop",
+      apiBaseUrl: "http://localhost:8000",
+      wsBaseUrl: "ws://localhost:8000",
+      primaryColor: "#2E75B6",
+      position: "bottom-right",
+      userEmail: "demo@example.com",
+      orderId: ""
+    };
+  </script>
+  <script src="/ai-chat-widget.iife.js"></script>
+  <script>
+    if (window.AIChatWidget && window.AIChatWidget.mount) {
+      window.AIChatWidget.mount('#ai-cs-widget-root', window.__AI_CS_CONFIG__);
+    }
+  </script>
+</body>
+</html>
